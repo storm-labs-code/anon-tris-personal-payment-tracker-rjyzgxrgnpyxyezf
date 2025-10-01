@@ -1,0 +1,135 @@
+@import 'tailwindcss';
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+    :root {
+        --background: hsl(210 20% 98%);
+        --foreground: hsl(220 15% 15%);
+        --card: hsl(0 0% 100%);
+        --card-foreground: hsl(220 15% 15%);
+        --popover: hsl(0 0% 100%);
+        --popover-foreground: hsl(220 15% 15%);
+        --primary: hsl(222 47% 40%);
+        --primary-foreground: hsl(0 0% 100%);
+        --secondary: hsl(210 16% 93%);
+        --secondary-foreground: hsl(222 47% 30%);
+        --muted: hsl(210 16% 93%);
+        --muted-foreground: hsl(215 15% 45%);
+        --accent: hsl(195 74% 72%);
+        --accent-foreground: hsl(210 30% 15%);
+        --destructive: hsl(0 65% 55%);
+        --destructive-foreground: hsl(0 0% 98%);
+        --border: hsl(210 16% 82%);
+        --input: hsl(210 16% 82%);
+        --ring: hsl(222 47% 40%);
+        --chart-1: hsl(12 70% 55%);
+        --chart-2: hsl(174 62% 45%);
+        --chart-3: hsl(200 60% 40%);
+        --chart-4: hsl(45 80% 55%);
+        --chart-5: hsl(340 70% 50%);
+        --radius: 0.5rem;
+        --sidebar-background: hsl(210 16% 96%);
+        --sidebar-foreground: hsl(220 15% 25%);
+        --sidebar-primary: hsl(222 47% 40%);
+        --sidebar-primary-foreground: hsl(0 0% 100%);
+        --sidebar-accent: hsl(210 16% 93%);
+        --sidebar-accent-foreground: hsl(222 47% 30%);
+        --sidebar-border: hsl(210 16% 82%);
+        --sidebar-ring: hsl(195 74% 60%);
+    }
+
+    .dark {
+        --background: hsl(220 15% 10%);
+        --foreground: hsl(0 0% 98%);
+        --card: hsl(220 15% 12%);
+        --card-foreground: hsl(0 0% 98%);
+        --popover: hsl(220 15% 12%);
+        --popover-foreground: hsl(0 0% 98%);
+        --primary: hsl(195 74% 60%);
+        --primary-foreground: hsl(0 0% 10%);
+        --secondary: hsl(220 15% 18%);
+        --secondary-foreground: hsl(0 0% 98%);
+        --muted: hsl(220 15% 18%);
+        --muted-foreground: hsl(220 10% 65%);
+        --accent: hsl(174 62% 45%);
+        --accent-foreground: hsl(0 0% 100%);
+        --destructive: hsl(0 62% 50%);
+        --destructive-foreground: hsl(0 0% 98%);
+        --border: hsl(220 15% 20%);
+        --input: hsl(220 15% 20%);
+        --ring: hsl(195 74% 60%);
+        --chart-1: hsl(12 70% 55%);
+        --chart-2: hsl(174 62% 45%);
+        --chart-3: hsl(200 60% 40%);
+        --chart-4: hsl(45 80% 55%);
+        --chart-5: hsl(340 70% 50%);
+        --sidebar-background: hsl(220 15% 12%);
+        --sidebar-foreground: hsl(0 0% 98%);
+        --sidebar-primary: hsl(195 74% 60%);
+        --sidebar-primary-foreground: hsl(0 0% 10%);
+        --sidebar-accent: hsl(220 15% 18%);
+        --sidebar-accent-foreground: hsl(0 0% 98%);
+        --sidebar-border: hsl(220 15% 18%);
+        --sidebar-ring: hsl(195 74% 60%);
+    }
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --radius-xs: calc(var(--radius) - 8px);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    --container-2xs: 16rem;
+    --container-4xs: 8rem;
+    --container-16xs: 4rem;
+
+    @keyframes accordion-down {
+        from {
+            height: 0;
+        }
+        to {
+            height: var(--radix-accordion-content-height);
+        }
+    }
+
+    @keyframes accordion-up {
+        from {
+            height: var(--radix-accordion-content-height);
+        }
+        to {
+            height: 0;
+        }
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
