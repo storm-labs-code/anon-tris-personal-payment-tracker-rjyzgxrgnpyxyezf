@@ -1,1 +1,819 @@
-{}
+{
+  "profiles": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY REFERENCES auth",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "full_name",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "avatar_url",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "user_settings": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "primary_currency",
+      "type": "currency_code NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "time_zone",
+      "type": "text NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "theme",
+      "type": "theme_preference NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "notifications_enabled",
+      "type": "boolean NOT NULL DEFAULT true",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "categories": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "name",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "is_favorite",
+      "type": "boolean NOT NULL DEFAULT false",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "tags": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "name",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "is_favorite",
+      "type": "boolean NOT NULL DEFAULT false",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "transactions": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "amount",
+      "type": "bigint NOT NULL CHECK",
+      "nullable": false
+    },
+    {
+      "name": "occurred_at",
+      "type": "timestamptz NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "category_id",
+      "type": "uuid REFERENCES categories",
+      "nullable": true,
+      "foreign_key": {
+        "table": "categories",
+        "column": "id"
+      }
+    },
+    {
+      "name": "payee",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "payment_method",
+      "type": "payment_method NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "notes",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "transaction_tags": [
+    {
+      "name": "transaction_id",
+      "type": "uuid NOT NULL REFERENCES transactions",
+      "nullable": false,
+      "foreign_key": {
+        "table": "transactions",
+        "column": "id"
+      }
+    },
+    {
+      "name": "tag_id",
+      "type": "uuid NOT NULL REFERENCES tags",
+      "nullable": false,
+      "foreign_key": {
+        "table": "tags",
+        "column": "id"
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "transaction_receipts": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "transaction_id",
+      "type": "uuid NOT NULL REFERENCES transactions",
+      "nullable": false,
+      "foreign_key": {
+        "table": "transactions",
+        "column": "id"
+      }
+    },
+    {
+      "name": "url",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "content_type",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "name",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "amount",
+      "type": "bigint CHECK",
+      "nullable": true
+    },
+    {
+      "name": "category_id",
+      "type": "uuid REFERENCES categories",
+      "nullable": true,
+      "foreign_key": {
+        "table": "categories",
+        "column": "id"
+      }
+    },
+    {
+      "name": "payee",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "payment_method",
+      "type": "payment_method",
+      "nullable": true
+    },
+    {
+      "name": "notes",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "is_favorite",
+      "type": "boolean NOT NULL DEFAULT false",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "preset_tags": [
+    {
+      "name": "preset_id",
+      "type": "uuid NOT NULL REFERENCES presets",
+      "nullable": false,
+      "foreign_key": {
+        "table": "presets",
+        "column": "id"
+      }
+    },
+    {
+      "name": "tag_id",
+      "type": "uuid NOT NULL REFERENCES tags",
+      "nullable": false,
+      "foreign_key": {
+        "table": "tags",
+        "column": "id"
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "recurring_transactions": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "amount",
+      "type": "bigint NOT NULL CHECK",
+      "nullable": false
+    },
+    {
+      "name": "category_id",
+      "type": "uuid REFERENCES categories",
+      "nullable": true,
+      "foreign_key": {
+        "table": "categories",
+        "column": "id"
+      }
+    },
+    {
+      "name": "payee",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "payment_method",
+      "type": "payment_method NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "notes",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "frequency",
+      "type": "recurrence_frequency NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "interval",
+      "type": "integer NOT NULL DEFAULT 1 CHECK",
+      "nullable": false
+    },
+    {
+      "name": "start_date",
+      "type": "date NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "end_date",
+      "type": "date",
+      "nullable": true
+    },
+    {
+      "name": "is_active",
+      "type": "boolean NOT NULL DEFAULT true",
+      "nullable": false
+    },
+    {
+      "name": "reminder_enabled",
+      "type": "boolean NOT NULL DEFAULT false",
+      "nullable": false
+    },
+    {
+      "name": "reminder_time",
+      "type": "time WITHOUT TIME ZONE",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "auto_create_transactions",
+      "type": "boolean NOT NULL DEFAULT false",
+      "nullable": false
+    }
+  ],
+  "category_budgets": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "category_id",
+      "type": "uuid NOT NULL REFERENCES categories",
+      "nullable": false,
+      "foreign_key": {
+        "table": "categories",
+        "column": "id"
+      }
+    },
+    {
+      "name": "period_start",
+      "type": "date NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "amount",
+      "type": "bigint NOT NULL CHECK",
+      "nullable": false
+    },
+    {
+      "name": "alert_threshold_percent",
+      "type": "integer NOT NULL DEFAULT 80 CHECK",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "recurring_occurrences": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "recurring_transaction_id",
+      "type": "uuid NOT NULL REFERENCES recurring_transactions",
+      "nullable": false,
+      "foreign_key": {
+        "table": "recurring_transactions",
+        "column": "id"
+      }
+    },
+    {
+      "name": "occurs_on",
+      "type": "date NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "occurrence_status NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "transaction_id",
+      "type": "uuid NULL REFERENCES transactions",
+      "nullable": true,
+      "foreign_key": {
+        "table": "transactions",
+        "column": "id"
+      }
+    },
+    {
+      "name": "snoozed_until",
+      "type": "date NULL",
+      "nullable": true
+    },
+    {
+      "name": "reminder_sent_at",
+      "type": "timestamptz NULL",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "push_subscriptions": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "endpoint",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "p256dh",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "auth",
+      "type": "text NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "expiration_time",
+      "type": "timestamptz NULL",
+      "nullable": true
+    },
+    {
+      "name": "user_agent",
+      "type": "text NULL",
+      "nullable": true
+    },
+    {
+      "name": "is_active",
+      "type": "boolean NOT NULL DEFAULT true",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "overall_budgets": [
+    {
+      "name": "id",
+      "type": "uuid primary key default gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid not null references profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "period_start",
+      "type": "date not null",
+      "nullable": false
+    },
+    {
+      "name": "amount",
+      "type": "bigint not null check",
+      "nullable": false
+    },
+    {
+      "name": "alert_threshold_percent",
+      "type": "integer not null default 80 check",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz not null default now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz not null default now",
+      "nullable": false
+    }
+  ],
+  "data_exports": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "export_type",
+      "type": "export_type NOT NULL",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "job_status NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "date_start",
+      "type": "date",
+      "nullable": true
+    },
+    {
+      "name": "date_end",
+      "type": "date",
+      "nullable": true
+    },
+    {
+      "name": "storage_url",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "file_size",
+      "type": "bigint",
+      "nullable": true
+    },
+    {
+      "name": "status_message",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "completed_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ],
+  "data_restores": [
+    {
+      "name": "id",
+      "type": "uuid PRIMARY KEY DEFAULT gen_random_uuid",
+      "nullable": false,
+      "primary_key": true
+    },
+    {
+      "name": "user_id",
+      "type": "uuid NOT NULL REFERENCES profiles",
+      "nullable": false,
+      "foreign_key": {
+        "table": "profiles",
+        "column": "id"
+      }
+    },
+    {
+      "name": "source_export_id",
+      "type": "uuid REFERENCES data_exports",
+      "nullable": true,
+      "foreign_key": {
+        "table": "data_exports",
+        "column": "id"
+      }
+    },
+    {
+      "name": "source_url",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "job_status NOT NULL DEFAULT",
+      "nullable": false
+    },
+    {
+      "name": "status_message",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "completed_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz NOT NULL DEFAULT now",
+      "nullable": false
+    }
+  ]
+}

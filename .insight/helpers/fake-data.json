@@ -1,8 +1,347 @@
 {
-    "session": {
-        "user": {
-            "id": "user-123",
-            "email": "test@example.com"
-        }
+  "profiles": [
+    {
+      "id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "full_name": "Jihye Kim",
+      "avatar_url": "https://randomuser.me/api/portraits/women/65.jpg",
+      "created_at": "2024-05-30T10:15:00.000Z",
+      "updated_at": "2024-05-30T10:15:00.000Z"
     }
+  ],
+  "categories": [
+    {
+      "id": "9c717c34-9d0b-400f-8f63-6427dbf912f4",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Food & Dining",
+      "is_favorite": true,
+      "created_at": "2024-05-28T09:00:00.000Z",
+      "updated_at": "2024-05-28T09:00:00.000Z"
+    },
+    {
+      "id": "391a4dab-f8cf-4d3d-b7c5-323e97845d9b",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Transportation",
+      "is_favorite": false,
+      "created_at": "2024-05-28T10:30:00.000Z",
+      "updated_at": "2024-05-28T10:30:00.000Z"
+    },
+    {
+      "id": "246b046f-0d8a-4189-b17b-62d04d246407",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Utilities",
+      "is_favorite": false,
+      "created_at": "2024-05-28T11:45:00.000Z",
+      "updated_at": "2024-05-28T11:45:00.000Z"
+    },
+    {
+      "id": "f23e7db5-2302-4629-9d99-7d0b9d797cda",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Entertainment",
+      "is_favorite": true,
+      "created_at": "2024-05-28T12:30:00.000Z",
+      "updated_at": "2024-05-28T12:30:00.000Z"
+    },
+    {
+      "id": "7baa45d0-636c-4aef-9a7d-f90d55aa0401",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Health & Fitness",
+      "is_favorite": false,
+      "created_at": "2024-05-28T13:15:00.000Z",
+      "updated_at": "2024-05-28T13:15:00.000Z"
+    }
+  ],
+  "category_budgets": [
+    {
+      "id": "47532676-4d93-4657-bef1-1aeeb756065c",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "category_id": "9c717c34-9d0b-400f-8f63-6427dbf912f4",
+      "period_start": "2024-06-01",
+      "amount": 500000,
+      "alert_threshold_percent": 80,
+      "created_at": "2024-05-29T08:00:00.000Z",
+      "updated_at": "2024-05-29T08:00:00.000Z"
+    },
+    {
+      "id": "63177f57-c2f2-436e-84de-21a24f786844",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "category_id": "391a4dab-f8cf-4d3d-b7c5-323e97845d9b",
+      "period_start": "2024-06-01",
+      "amount": 150000,
+      "alert_threshold_percent": 75,
+      "created_at": "2024-05-29T09:15:00.000Z",
+      "updated_at": "2024-05-29T09:15:00.000Z"
+    },
+    {
+      "id": "d5e4b606-0d89-4516-9d8b-8c1ddb435693",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "category_id": "246b046f-0d8a-4189-b17b-62d04d246407",
+      "period_start": "2024-06-01",
+      "amount": 200000,
+      "alert_threshold_percent": 85,
+      "created_at": "2024-05-29T10:30:00.000Z",
+      "updated_at": "2024-05-29T10:30:00.000Z"
+    },
+    {
+      "id": "a7a611e7-47ae-4f6c-aa10-3dcc3a54d974",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "category_id": "f23e7db5-2302-4629-9d99-7d0b9d797cda",
+      "period_start": "2024-06-01",
+      "amount": 100000,
+      "alert_threshold_percent": 80,
+      "created_at": "2024-05-29T11:45:00.000Z",
+      "updated_at": "2024-05-29T11:45:00.000Z"
+    }
+  ],
+  "tags": [
+    {
+      "id": "8f3df876-19c3-4f5e-b110-42c10e7fbe15",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Work",
+      "is_favorite": true,
+      "created_at": "2024-05-27T07:45:00.000Z",
+      "updated_at": "2024-05-27T07:45:00.000Z"
+    },
+    {
+      "id": "eb4ef87a-9c77-477b-9235-c789a18edf41",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Personal",
+      "is_favorite": false,
+      "created_at": "2024-05-27T08:30:00.000Z",
+      "updated_at": "2024-05-27T08:30:00.000Z"
+    },
+    {
+      "id": "b3ba21a1-2763-4a33-8a77-471bc2f173b6",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Urgent",
+      "is_favorite": true,
+      "created_at": "2024-05-27T09:15:00.000Z",
+      "updated_at": "2024-05-27T09:15:00.000Z"
+    },
+    {
+      "id": "7ea21ed7-9587-42b3-98f0-1ede62789d5a",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Gift",
+      "is_favorite": false,
+      "created_at": "2024-05-27T10:00:00.000Z",
+      "updated_at": "2024-05-27T10:00:00.000Z"
+    }
+  ],
+  "presets": [
+    {
+      "id": "d19f2526-c17a-4949-8be0-163b47ea7c4f",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Coffee Shop",
+      "amount": 4500,
+      "category_id": "9c717c34-9d0b-400f-8f63-6427dbf912f4",
+      "payee": "Starbucks",
+      "payment_method": "card",
+      "notes": "Small regular coffee",
+      "is_favorite": true,
+      "created_at": "2024-05-26T14:00:00.000Z",
+      "updated_at": "2024-05-26T14:00:00.000Z"
+    },
+    {
+      "id": "73d469bb-9860-441b-bb62-f7859fcd6361",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Bus Fare",
+      "amount": 1200,
+      "category_id": "391a4dab-f8cf-4d3d-b7c5-323e97845d9b",
+      "payee": "City Bus",
+      "payment_method": "cash",
+      "notes": null,
+      "is_favorite": false,
+      "created_at": "2024-05-26T15:30:00.000Z",
+      "updated_at": "2024-05-26T15:30:00.000Z"
+    },
+    {
+      "id": "c4a0ef3c-5d77-4ea5-818e-7e1a7b4e7352",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Monthly Netflix",
+      "amount": 13900,
+      "category_id": "f23e7db5-2302-4629-9d99-7d0b9d797cda",
+      "payee": "Netflix",
+      "payment_method": "card",
+      "notes": "Streaming subscription",
+      "is_favorite": true,
+      "created_at": "2024-05-26T16:15:00.000Z",
+      "updated_at": "2024-05-26T16:15:00.000Z"
+    },
+    {
+      "id": "bdb0498d-3ea9-4db5-9406-4006b2163b17",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "name": "Gym Membership",
+      "amount": 55000,
+      "category_id": "7baa45d0-636c-4aef-9a7d-f90d55aa0401",
+      "payee": "Fit Gym",
+      "payment_method": "card",
+      "notes": "Monthly fitness plan",
+      "is_favorite": false,
+      "created_at": "2024-05-26T17:00:00.000Z",
+      "updated_at": "2024-05-26T17:00:00.000Z"
+    }
+  ],
+  "preset_tags": [
+    {
+      "preset_id": "d19f2526-c17a-4949-8be0-163b47ea7c4f",
+      "tag_id": "8f3df876-19c3-4f5e-b110-42c10e7fbe15",
+      "created_at": "2024-05-30T11:00:00.000Z",
+      "updated_at": "2024-05-30T11:00:00.000Z"
+    },
+    {
+      "preset_id": "73d469bb-9860-441b-bb62-f7859fcd6361",
+      "tag_id": "eb4ef87a-9c77-477b-9235-c789a18edf41",
+      "created_at": "2024-05-30T11:10:00.000Z",
+      "updated_at": "2024-05-30T11:10:00.000Z"
+    },
+    {
+      "preset_id": "c4a0ef3c-5d77-4ea5-818e-7e1a7b4e7352",
+      "tag_id": "b3ba21a1-2763-4a33-8a77-471bc2f173b6",
+      "created_at": "2024-05-30T11:20:00.000Z",
+      "updated_at": "2024-05-30T11:20:00.000Z"
+    },
+    {
+      "preset_id": "bdb0498d-3ea9-4db5-9406-4006b2163b17",
+      "tag_id": "7ea21ed7-9587-42b3-98f0-1ede62789d5a",
+      "created_at": "2024-05-30T11:30:00.000Z",
+      "updated_at": "2024-05-30T11:30:00.000Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "49db5cc9-de48-4b28-8c2d-798516c7c6f1",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 4500,
+      "occurred_at": "2024-05-29T08:15:00.000Z",
+      "category_id": "9c717c34-9d0b-400f-8f63-6427dbf912f4",
+      "payee": "Starbucks",
+      "payment_method": "card",
+      "notes": "Morning latte",
+      "created_at": "2024-05-29T08:16:00.000Z",
+      "updated_at": "2024-05-29T08:16:00.000Z"
+    },
+    {
+      "id": "e531b0f7-735e-4ea9-9982-c08f544384fe",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 1200,
+      "occurred_at": "2024-05-29T09:00:00.000Z",
+      "category_id": "391a4dab-f8cf-4d3d-b7c5-323e97845d9b",
+      "payee": "City Bus",
+      "payment_method": "cash",
+      "notes": null,
+      "created_at": "2024-05-29T09:01:00.000Z",
+      "updated_at": "2024-05-29T09:01:00.000Z"
+    },
+    {
+      "id": "f46d2d0a-c19c-4860-97a9-0e449a0b4d2e",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 58000,
+      "occurred_at": "2024-05-28T18:30:00.000Z",
+      "category_id": "7baa45d0-636c-4aef-9a7d-f90d55aa0401",
+      "payee": "Fit Gym",
+      "payment_method": "card",
+      "notes": "Gym monthly subscription",
+      "created_at": "2024-05-28T18:35:00.000Z",
+      "updated_at": "2024-05-28T18:35:00.000Z"
+    },
+    {
+      "id": "b7d5b4c6-227d-4115-b745-4d5c5ae3b31d",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 13900,
+      "occurred_at": "2024-05-27T20:00:00.000Z",
+      "category_id": "f23e7db5-2302-4629-9d99-7d0b9d797cda",
+      "payee": "Netflix",
+      "payment_method": "card",
+      "notes": "Monthly subscription",
+      "created_at": "2024-05-27T20:05:00.000Z",
+      "updated_at": "2024-05-27T20:05:00.000Z"
+    }
+  ],
+  "transaction_receipts": [
+    {
+      "id": "529d7a3a-4bce-4d4c-b2e5-8c3fa47626e7",
+      "transaction_id": "49db5cc9-de48-4b28-8c2d-798516c7c6f1",
+      "url": "https://example.com/receipts/starbucks-0529.jpg",
+      "content_type": "image/jpeg",
+      "created_at": "2024-05-29T08:16:30.000Z",
+      "updated_at": "2024-05-29T08:16:30.000Z"
+    },
+    {
+      "id": "28ef8f7d-6b62-42d6-8e74-6f4eba1f2f4f",
+      "transaction_id": "f46d2d0a-c19c-4860-97a9-0e449a0b4d2e",
+      "url": "https://example.com/receipts/gym-0528.png",
+      "content_type": "image/png",
+      "created_at": "2024-05-28T18:36:00.000Z",
+      "updated_at": "2024-05-28T18:36:00.000Z"
+    }
+  ],
+  "transaction_tags": [
+    {
+      "transaction_id": "49db5cc9-de48-4b28-8c2d-798516c7c6f1",
+      "tag_id": "8f3df876-19c3-4f5e-b110-42c10e7fbe15",
+      "created_at": "2024-05-29T08:17:00.000Z",
+      "updated_at": "2024-05-29T08:17:00.000Z"
+    },
+    {
+      "transaction_id": "e531b0f7-735e-4ea9-9982-c08f544384fe",
+      "tag_id": "eb4ef87a-9c77-477b-9235-c789a18edf41",
+      "created_at": "2024-05-29T09:02:00.000Z",
+      "updated_at": "2024-05-29T09:02:00.000Z"
+    }
+  ],
+  "recurring_transactions": [
+    {
+      "id": "772f24b1-a5e6-4fe0-b7cc-7a7e68a317a7",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 55000,
+      "category_id": "7baa45d0-636c-4aef-9a7d-f90d55aa0401",
+      "payee": "Fit Gym",
+      "payment_method": "card",
+      "notes": "Gym membership monthly payment",
+      "frequency": "monthly",
+      "interval": 1,
+      "start_date": "2024-01-01",
+      "end_date": null,
+      "is_active": true,
+      "reminder_enabled": true,
+      "reminder_time": "08:00:00",
+      "created_at": "2024-05-15T07:30:00.000Z",
+      "updated_at": "2024-05-15T07:30:00.000Z"
+    },
+    {
+      "id": "d0223b82-af45-4d23-b476-e4229ef9f77d",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "amount": 13900,
+      "category_id": "f23e7db5-2302-4629-9d99-7d0b9d797cda",
+      "payee": "Netflix",
+      "payment_method": "card",
+      "notes": "Streaming service subscription",
+      "frequency": "monthly",
+      "interval": 1,
+      "start_date": "2023-09-01",
+      "end_date": null,
+      "is_active": true,
+      "reminder_enabled": false,
+      "reminder_time": null,
+      "created_at": "2024-05-01T10:00:00.000Z",
+      "updated_at": "2024-05-01T10:00:00.000Z"
+    }
+  ],
+  "user_settings": [
+    {
+      "id": "bb828852-7a97-47c1-b6a0-1f1531aa61cf",
+      "user_id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "primary_currency": "KRW",
+      "time_zone": "Asia/Seoul",
+      "theme": "light",
+      "notifications_enabled": true,
+      "created_at": "2024-05-25T12:00:00.000Z",
+      "updated_at": "2024-05-25T12:00:00.000Z"
+    }
+  ],
+  "session": {
+    "user": {
+      "id": "16a07f79-6f1e-4a58-90b6-bf53aec3c35e",
+      "email": "jihye.kim@example.com"
+    }
+  }
 }
